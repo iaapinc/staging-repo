@@ -1,0 +1,11 @@
+@EndUserText.label: 'service definition for trade spend'
+define service ZSRV_DEF_Trade {
+  expose ZI_TRADE_SPEND        as trade_spend;
+  expose zi_trade_spend_create as trade_spend_create;
+  expose ZI_ADAPTER_R          as adapter_data;
+  expose zi_vh_payment_typ     as payment_type;
+  expose zi_vh_trade_category  as TRADE_SPEND_CATEGORY;
+  expose ZI_VH_PAYMENT_METHOD  as payment_method;
+  expose zi_vh_adapter_type    as adapter_type;
+  expose ZI_PROMO_CV           as promotion_calendar;
+}

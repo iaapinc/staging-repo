@@ -1,0 +1,27 @@
+unmanaged implementation in class zbp_i_trade_spend_create unique;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for zi_trade_spend_create //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ;//( authorization : global );
+  update;
+  delete;
+  field ( readonly ) trade_spend_id;
+  association _create { create; }
+}
+
+define behavior for ZI_TRADE_SPEND //alias <alias_name>
+//late numbering
+lock dependent by _header
+authorization dependent by _header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) trade_spend_id, capability_id;
+  association _header;
+}
